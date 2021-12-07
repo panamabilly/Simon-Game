@@ -1,0 +1,2 @@
+# Simon-Game
+My project consists of replicating the game of Simon which is a exciting electronic game of lights and sounds where a player presses colored buttons to match a random sequence provided by Simon. If the player repeats the pattern successfully one more light is added to the pattern, each time the player repeats the sequence successfully. If the player fails to enter the sequence correctly the game is over. The game will have 10 rounds. The game will keep track of score, status (correct/ incorrect), and a round number.
