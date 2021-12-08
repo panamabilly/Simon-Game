@@ -9,17 +9,22 @@
 </head>
 <body>
 <h1>Welcome to Simon Game!</h1>
-<div class= "gameboard" id = "green-top-left"></div>
-<div class="gameboard" id="red-top-right"></div>
-<div class="gameboard" id="yellow-bottom-left"></div>
-<div class="gameboard" id="blue-bottom-right"></div>
-<div class="gameboard" id="middle-circle-panel"></div>
-    <button class ="gameboard" id="Onbtn"></button>
-    <h2>SIMON</h2>
-<div class="scoreboard" id="score-box"></div>
-<div class="scoreboard" id="status-box"></div>
-<div class="scoreboard" id="round-box"></div>
+<div class="parent-gameboard">
+    <div class= "gameboard" id ="green-top-left"></div>
+    <div class="gameboard" id="red-top-right"></div>
+    <div class="gameboard" id="yellow-bottom-left"></div>
+    <div class="gameboard" id="blue-bottom-right"></div>
+    <div class="gameboard" id="middle-circle-panel">
+        <button class ="gameboard" id="onBtn"></button>
+        <h2>SIMON</h2>
+    </div>
 
+</div>
+<div class="parent-scoreboard">
+    <div class="scoreboard" id="score-box">Score:</div>
+    <div class="scoreboard" id="status-box">Status:</div>
+    <div class="scoreboard" id="round-box">Round:</div>
+</div>
 <script src="script.js"></script>    
 </body>
 </html>
