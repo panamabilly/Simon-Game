@@ -1,0 +1,107 @@
+**********************************************************************************************
+START INTRO MODAL
+HTML PORTION
+create buttons, divs, text etc.
+CSS PORTION
+style CSS using the MODAL tutorial
+JAVASCRIPT PORTION
+grab elements using query Selector
+FUNCTIONS
+functions using open modal and close modal functions
+EVENT LISTENERS
+openbutton and close button click event listeners
+TIMEOUT FOR MODAL TO OPEN
+setTimeout(openmodal,time);
+
+
+
+
+**********************************************************************************************
+
+START GAMEBOARD
+HTML PORTION
+
+
+HTML BoilerPlate
+
+
+<body>
+<background>
+<h1>
+<div> top left quadrant of circle, green
+<audio> audio green
+<div> top right quadrant of circle, red
+<audio>  audio red
+<div> bottom left quadrant of circle, yellow
+<audio> audio yellow
+<div> bottom right quadrant of circle, blue
+<audio> audio blue
+<div> middle circle
+     <button> on/off button
+     <h2> SIMON! text
+<div> left textbox that contains score (0-100)
+<h3> text inside  left div
+<div> middle textbox that contains status (good/bad)
+<h3> text inside middle div
+<div> right textbox that contains round info (1-10)
+<h3> text inside right div
+<script> various script links to HTML
+</body>
+
+
+CSS PORTION
+
+
+The CSS will be styled using trial and error as I go for each element on the webpage.
+
+
+JAVASCRIPT PORTION
+
+
+Variables
+let onButton
+let playerTurn =
+let computerTurn =
+let win
+let playerColorOrder = array to hold values
+let computerColorOrder = array to hold values
+let lightOn
+let lightOff
+let good
+let bad
+let win
+let lose
+let lightTimeInterval
+
+
+
+FUNCTIONS
+Turn on Simon Machine
+Game Function
+Game Turn Function
+Function for Green Quadrant
+Function for Red Quadrant
+Function for Yellow Quadrant
+Function for Blue Quadrant
+Function for Default Color on GameBoard
+Function for Lighted GameBoard
+Function to Check Winner
+Function to Check Game Status
+Function to Handle Computer Turn
+Function to Handle Player Turn
+
+
+
+*********************************************************************************************
+START WIN MODAL
+HTML PORTION
+create buttons, divs, text etc.
+CSS PORTION
+style CSS using the MODAL tutorial
+JAVASCRIPT PORTION
+grab elements using query Selector
+functions using open modal after win condition has been reached and close modal functions
+EVENT LISTENERS
+TIMEOUT FOR MODAL TO OPEN after Winning Condition
+setTimeout(openmodal,time);
+**********************************************************************************************
