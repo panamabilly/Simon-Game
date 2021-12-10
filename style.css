@@ -12,7 +12,7 @@ h1 {
 }
 
 #green-top-left {
-	background-color: green;
+	background-color: darkgreen;
 	width: 400px;
 	height: 400px;
 	border-top-left-radius: 400px;
@@ -20,7 +20,7 @@ h1 {
 }
 
 #red-top-right {
-	background-color: red;
+	background-color: darkred;
 	width: 400px;
 	height: 400px;
 	border-top-right-radius: 400px;
@@ -28,14 +28,14 @@ h1 {
 }
 
 #yellow-bottom-left {
-	background-color: yellow;
+	background-color: rgba(255,204,0);
 	width: 400px;
 	height: 400px;
 	border-bottom-left-radius: 400px;
 	margin: 0px 0px;
 }
 #blue-bottom-right {
-	background-color: blue;
+	background-color: darkblue;
 	width: 400px;
 	height: 400px;
 	border-bottom-right-radius: 400px;
