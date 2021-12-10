@@ -4,7 +4,8 @@ let playerColorSequence = [];
 let playerColorSequenceToString;
 let computerColorSequenceToString;
 let randomNumber = 0;
-let roundCounter = 0;
+let roundCounter = 1;
+let scoreCounter = 0;
 
 // Function that creates random number sequence and pushes it into a random array for Simon to display.
 function createComputerColorSequence() {
@@ -70,9 +71,13 @@ function logPlayerColorSequence(event) {
 			setTimeout(function () {
 				gameLogic();
 			}, 2000);
+			statusBox.textContent = 'Status: GOOD!';
+			roundBox.textContent = `Round: ${roundCounter++}`;
+			scoreBox.textContent = `Score: ${(scoreCounter = scoreCounter + 10)}`;
 		}
 	} else {
 		console.log('incorrect');
+		statusBox.textContent = 'Status: LOSE!';
 	}
 }
 // Game Function **RENAME FUNCTION TO MAKE CLEAR WHAT ITS DOING**
@@ -98,3 +103,8 @@ function nextRound() {
 	if (playerColorSequenceToString === computerColorSequence) {
 	}
 }
+
+// Query selector for the status scorebox; The status messages go in the corresponding logic positions
+const statusBox = document.querySelector('#status-box');
+const scoreBox = document.querySelector('#score-box');
+const roundBox = document.querySelector('#round-box');
