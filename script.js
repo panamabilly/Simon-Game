@@ -1,16 +1,16 @@
 // Variables
 let computerColorSequence = [];
 let playerColorSequence = [];
+let playerColorSequenceToString;
+let computerColorSequenceToString;
 let randomNumber = 0;
-let playerNumber = null;
+let roundCounter = 0;
 
 // Function that creates random number sequence and pushes it into a random array for Simon to display.
 function createComputerColorSequence() {
 	randomNumber = Math.floor(Math.random() * 4);
 	computerColorSequence.push(randomNumber);
-	console.log(computerColorSequence);
 }
-console.log(createComputerColorSequence);
 
 // Variable, querySelector Gameboard Buttons, added Event Listener that
 
@@ -38,38 +38,63 @@ const buttonsArray = [greenButton, redButton, yellowButton, blueButton];
 
 // Function that lights up gameboard when specific light is called up in lightgameboard function.
 function lightGameBoard(button) {
-	console.log(button);
 	button.style.filter = 'brightness(200%)';
 	setTimeout(function () {
 		button.style.filter = 'brightness(75%)';
 	}, 1000);
 }
 
-// Function to enter Player click into an array which includes the index of the button pressed.
+// Function to enter Player click into an array which includes the index of the button pressed. ** RENAME FUNCTION TO MAKE IT CLEAR WHAT ITS DOING
 function logPlayerColorSequence(event) {
-	playerColorSequence.push(event.target);
-	lightGameBoard(event.target);
-	console.log(playerColorSequence);
-	setTimeout(function () {
-		gameLogic();
-	}, 1000);
-}
+	playerColorSequence.push(event.target.dataset.id);
 
-// lightGameBoard(buttonsArray[1]);
-// Game Function
+	playerColorSequenceToString = playerColorSequence
+		.toString()
+		.replaceAll(',', '');
+	lightGameBoard(event.target);
+	let playerSequenceLength = playerColorSequence.length;
+	let computerSequenceLength = computerColorSequence.length;
+	console.log('playercolorsequence', playerColorSequenceToString);
+	console.log(
+		'computercolorsequence',
+		computerColorSequenceToString.substring(0, playerSequenceLength)
+	);
+	if (
+		playerColorSequenceToString ===
+		computerColorSequenceToString.substring(0, playerSequenceLength)
+	) {
+		console.log('correct');
+		if (playerSequenceLength === computerSequenceLength) {
+			console.log('move to next round');
+			playerColorSequence = [];
+			setTimeout(function () {
+				gameLogic();
+			}, 2000);
+		}
+	} else {
+		console.log('incorrect');
+	}
+}
+// Game Function **RENAME FUNCTION TO MAKE CLEAR WHAT ITS DOING**
 function gameLogic() {
 	// Insert computerColorSequence Array for computer player
 	createComputerColorSequence();
-	console.log(computerColorSequence);
 	let currentColor;
 	// Iterate through colorsequence Array for computer player
 	for (let i = 0; i < computerColorSequence.length; i++) {
-		console.log(computerColorSequence[i]);
 		currentColor = computerColorSequence[i];
 		// Each Array index need to light a button color
+		// Timeout function set to give some time for the gameboard to light after clicking a button
 		setTimeout(function () {
 			lightGameBoard(buttonsArray[currentColor]);
 		}, i * 1000);
 	}
+	// Compare Computer Sequence to Player Sequence
+	computerColorSequenceToString = computerColorSequence
+		.toString()
+		.replaceAll(',', '');
 }
-// lightGameBoard(buttonsArray[computerColorSequence[i]]);
+function nextRound() {
+	if (playerColorSequenceToString === computerColorSequence) {
+	}
+}
