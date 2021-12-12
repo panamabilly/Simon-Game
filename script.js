@@ -65,9 +65,7 @@ function logAndCheckPlayerColorSequence(event) {
 	let truncatedComputerColorSequenceToString =
 		computerColorSequenceToString.substring(0, playerSequenceLength);
 	if (playerColorSequenceToString === truncatedComputerColorSequenceToString) {
-		console.log('correct');
 		if (playerSequenceLength === computerSequenceLength) {
-			// alert('Player Advances to the Next Round!');
 			playerColorSequence = [];
 			setTimeout(function () {
 				flashComputerColorSequence();
@@ -76,7 +74,6 @@ function logAndCheckPlayerColorSequence(event) {
 			showScoreboardStats();
 		}
 	} else {
-		// alert('Incorrect Sequence Entry GameOver!!!!');
 		statusBox.textContent = 'Status:LOSE GAME OVER!';
 		setTimeout(function () {
 			clearScoreboardStats();
@@ -87,7 +84,7 @@ function logAndCheckPlayerColorSequence(event) {
 	if (
 		playerColorSequenceToString === truncatedComputerColorSequenceToString &&
 		playerSequenceLength === computerSequenceLength &&
-		scoreCounter === 30
+		scoreCounter === 80
 	) {
 		winGame();
 		winnerScoreboardStats();
@@ -117,7 +114,6 @@ function flashComputerColorSequence() {
 			lightGameBoard(buttonsArray[currentColor]);
 		}, i * 500);
 		clearTimeout;
-		console.log(currentColor);
 	}
 	computerColorSequenceToString = computerColorSequence
 		.toString()
