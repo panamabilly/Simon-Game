@@ -1,4 +1,4 @@
-// Variables
+// Global Variables
 let computerColorSequence = [];
 let playerColorSequence = [];
 let playerColorSequenceToString;
@@ -13,7 +13,7 @@ function createComputerColorSequence() {
 	computerColorSequence.push(randomNumber);
 }
 
-// Variable, querySelector Gameboard Buttons, added Event Listener that
+// Variables, querySelector Gameboard Buttons, added Event Listeners
 
 // Event listener is pushing a new Random Number into the array after greenbutton is clicked.
 let greenButton = document.querySelector('#green-top-left');
@@ -31,10 +31,11 @@ yellowButton.addEventListener('click', logAndCheckPlayerColorSequence);
 let blueButton = document.querySelector('#blue-bottom-right');
 blueButton.addEventListener('click', logAndCheckPlayerColorSequence);
 
-// Event listener is waiting for on button to start the gameLogic function
+// Event listener is waiting for on button to start the flashComputerColorSequence function
 let onButton = document.querySelector('#onBtn');
-onButton.addEventListener('click', gameLogic);
+onButton.addEventListener('click', flashComputerColorSequence);
 
+// Holds index for butons array
 let buttonsArray = [greenButton, redButton, yellowButton, blueButton];
 
 // Function that lights up gameboard when specific light is called up in lightgameboard function.
@@ -45,7 +46,14 @@ function lightGameBoard(button) {
 	}, 1000);
 }
 
-// Function to enter Player click into an array which includes the index of the button pressed. ** RENAME FUNCTION TO MAKE IT CLEAR WHAT ITS DOING
+// Function to enter Player click into an array which includes the index of the button pressed.
+// Then the array is converted to a string and then truncated to match then the delimiting commas where removed from the string.
+// Then player and computer color sequence values are compared for length and accuracy
+// If player matches computer the player advances to the next round where then the player  color sequence is clear and player enters the entire sequence again.
+// The gamelogic function is called to generate the next lighted panel in the Simon board
+// Lose and Winning logica was added with functions called to keep track of statistics
+// A crazy win pattern was set using flashComputerColorSequence function to create a random pattern for a set interval
+
 function logAndCheckPlayerColorSequence(event) {
 	playerColorSequence.push(event.target.dataset.id);
 	playerColorSequenceToString = playerColorSequence
@@ -59,63 +67,64 @@ function logAndCheckPlayerColorSequence(event) {
 	if (playerColorSequenceToString === truncatedComputerColorSequenceToString) {
 		console.log('correct');
 		if (playerSequenceLength === computerSequenceLength) {
-			console.log('move to next round');
+			// alert('Player Advances to the Next Round!');
 			playerColorSequence = [];
 			setTimeout(function () {
-				gameLogic();
-			}, 2000);
+				flashComputerColorSequence();
+			}, 1000);
 
 			showScoreboardStats();
 		}
 	} else {
-		console.log('incorrect');
+		// alert('Incorrect Sequence Entry GameOver!!!!');
 		statusBox.textContent = 'Status:LOSE GAME OVER!';
 		setTimeout(function () {
 			clearScoreboardStats();
 			gameOver();
 		}, 2500);
 	}
+	// This if statement sets the winning condition which is 8 a score of 80 or 8 rounds and deploys crazy random color sequence when the player beats the final round.
 	if (
 		playerColorSequenceToString === truncatedComputerColorSequenceToString &&
 		playerSequenceLength === computerSequenceLength &&
-		scoreCounter === 20
+		scoreCounter === 30
 	) {
 		winGame();
 		winnerScoreboardStats();
+		var Timer = setInterval(flashComputerColorSequence, 200);
+		setTimeout(function () {
+			clearInterval(Timer);
+		}, 4000);
 		setTimeout(function () {
 			clearScoreboardStats();
 			gameOver();
-		}, 2500);
+		}, 5000);
 	}
 }
-// Game Function **RENAME FUNCTION TO MAKE CLEAR WHAT ITS DOING**
-function gameLogic() {
-	// Insert computerColorSequence Array for computer player
+// Function calls random number created by createComputerColor Sequence iterates it using the length of the color sequence array, then lights up the game board according to the random number
+// Notes below:
+// Insert computerColorSequence Array for computer player
+// Iterate through colorsequence Array for computer player
+// Each Array index need to light a button color
+// Timeout function set to give some time for the gameboard to light after clicking a button
+// Assign a variable as a string to computerColorSequence
+function flashComputerColorSequence() {
 	createComputerColorSequence();
 	let currentColor;
-	// Iterate through colorsequence Array for computer player
 	for (let i = 0; i < computerColorSequence.length; i++) {
 		currentColor = computerColorSequence[i];
-		// Each Array index need to light a button color
-		// Timeout function set to give some time for the gameboard to light after clicking a button
 		setTimeout(function () {
 			lightGameBoard(buttonsArray[currentColor]);
 		}, i * 500);
 		clearTimeout;
 		console.log(currentColor);
-
-		// setTimeout(function () {
-		// 	lightGameBoard(buttonsArray[currentColor]);
-		// }, i * 500);
-		// console.log(currentColor);
 	}
-	// Compare Computer Sequence to Player Sequence
 	computerColorSequenceToString = computerColorSequence
 		.toString()
 		.replaceAll(',', '');
 }
 
-// Query selector for the status scorebox; The status messages go in the corresponding logic positions
+// Query selectors for the  scoreboard; The status messages go in the corresponding logic positions
 const statusBox = document.querySelector('#status-box');
 const scoreBox = document.querySelector('#score-box');
 const roundBox = document.querySelector('#round-box');
@@ -140,7 +149,7 @@ function winnerScoreboardStats() {
 	roundBox.textContent = 'Round: WIN!';
 	scoreBox.textContent = 'Score: WIN!';
 }
-
+// When game is over reset all the global variables, so you can play again.
 function gameOver() {
 	computerColorSequence = [];
 	playerColorSequence = [];
@@ -150,7 +159,7 @@ function gameOver() {
 	roundCounter = 1;
 	scoreCounter = 0;
 }
-
+// When game is won reset all the global variables, so you can play again.
 function winGame() {
 	computerColorSequence = [];
 	playerColorSequence = [];
@@ -160,3 +169,23 @@ function winGame() {
 	roundCounter = 1;
 	scoreCounter = 0;
 }
+
+//Grabbing Elements for Modal
+const openBtn = document.querySelector('#openModal');
+const modal = document.querySelector('#modal-textbox');
+const close = document.querySelector('#close');
+
+//Functions for Modal
+const openModal = () => {
+	modal.style.display = 'block';
+	// setTimeout(openModal, 1000);
+};
+
+const closeModal = () => {
+	modal.style.display = 'none';
+};
+
+//Event Listeners For Modal
+openBtn.addEventListener('click', openModal);
+
+close.addEventListener('click', closeModal);
