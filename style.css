@@ -1,0 +1,135 @@
+h1 {
+	margin: auto;
+	text-align: center;
+	font-family: 'Press Start 2P', cursive;
+}
+.parent-gameboard {
+	width: 800px;
+	height: 800px;
+	display: flex;
+	flex-wrap: wrap;
+	margin: auto;
+	justify-content: center;
+}
+
+#green-top-left {
+	background-color: darkgreen;
+	width: 400px;
+	height: 400px;
+	border-top-left-radius: 400px;
+	margin: 0px 0px;
+}
+
+#red-top-right {
+	background-color: darkred;
+	width: 400px;
+	height: 400px;
+	border-top-right-radius: 400px;
+	margin: 0px 0px;
+}
+
+#yellow-bottom-left {
+	background-color: rgba(255, 204, 0);
+	width: 400px;
+	height: 400px;
+	border-bottom-left-radius: 400px;
+	margin: 0px 0px;
+}
+#blue-bottom-right {
+	background-color: darkblue;
+	width: 400px;
+	height: 400px;
+	border-bottom-right-radius: 400px;
+	margin: 0px 0px;
+}
+#middle-circle-panel {
+	background-color: black;
+	width: 200px;
+	height: 200px;
+	border-radius: 400px;
+	margin: 0px 0px;
+	z-index: 1;
+	position: absolute;
+	top: 333px;
+}
+.parent-scoreboard {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+h2 {
+	color: white;
+	position: relative;
+	top: 80px;
+	left: 55px;
+	font-family: 'Bakbak One', cursive;
+	font-size: large;
+}
+#onBtn {
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	top: 50px;
+	right: 87px;
+}
+
+#score-box {
+	width: 100px;
+	height: 50px;
+	background-color: black;
+	font-family: 'Press Start 2P', cursive;
+	font-size: small;
+	color: greenyellow;
+}
+
+#status-box {
+	width: 100px;
+	height: 50px;
+	background-color: black;
+	font-family: 'Press Start 2P', cursive;
+	font-size: small;
+	color: greenyellow;
+}
+
+#round-box {
+	width: 100px;
+	height: 50px;
+	background-color: black;
+	font-family: 'Press Start 2P', cursive;
+	font-size: small;
+	color: greenyellow;
+}
+#modal-textbox {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 2;
+	background-color: white;
+	height: 550px;
+	width: 550px;
+	border-radius: 2px;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+	padding: 2%;
+	line-height: 120%;
+	display: none;
+	font-family: 'Press Start 2P', cursive;
+	font-size: small;
+}
+
+#modal-footer {
+	text-align: right;
+}
+
+.modal-buttons {
+	padding: 14px 18px;
+	background-color: #677996;
+	border: none;
+	outline: none;
+	border-radius: 3px;
+	color: white;
+	font-family: 'Arial';
+	cursor: pointer;
+	font-family: 'Press Start 2P', cursive;
+	font-size: small;
+}
