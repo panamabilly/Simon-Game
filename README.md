@@ -13,6 +13,16 @@ HTML, CSS and JavaScript
 
 ## Installation Instructions
 
+Fork and clone the repository in terminal.
+cd into the folder that contains repository.
+Open the entire folder in VScode.
+In terminal open all code in VSCode using "code .".
+Open the index.html file in your browser.
+You can do this by going to explorer window and then left clicking on index.html, then hold and drag index.html on to the address bar.
+You should see the address bar display location of the html file for example: "/home/panamabilly/sei/project/Simon-Game/index.html"
+Cick on About the Game button to learn the game rules, you can click the button on the Simon board to start the game.
+Start playing!
+
 ## User Stories
 
 The users of this app are people that want to play a casual game of SIMON in a browser.
