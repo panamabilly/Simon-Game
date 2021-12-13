@@ -23,6 +23,9 @@ You should see the address bar display location of the html file for example: "/
 Cick on About the Game button to learn the game rules, you can click the button on the Simon board to start the game.
 Start playing!
 
+The game is also hosted in gitHub pages in the following URL. Just click on link below to enter the webpage.
+https://panamabilly.github.io/Simon-Game/
+
 ## User Stories
 
 The users of this app are people that want to play a casual game of SIMON in a browser.
@@ -66,6 +69,8 @@ Lessons Learned
 
 Learned to how to plan out how to develop a simple program, and implement a vision for a game and code according to the needs.
 
-## Link to Project's Github Repository.
+## Link to Project's Github Repository and Game Website
 
 https://github.com/panamabilly/Simon-Game
+
+https://panamabilly.github.io/Simon-Game/
