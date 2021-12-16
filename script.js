@@ -35,14 +35,19 @@ blueButton.addEventListener('click', logAndCheckPlayerColorSequence);
 let onButton = document.querySelector('#onBtn');
 onButton.addEventListener('click', flashComputerColorSequence);
 
+// All buttons from the DOM saved into a variable
+const buttons = document.querySelectorAll('.gameboard');
+
 // Holds index for butons array
 let buttonsArray = [greenButton, redButton, yellowButton, blueButton];
 
-// Function that lights up gameboard when specific light is called up in lightgameboard function.
+// Function that lights up gameboard when specific light is called up in lightgameboard function. Tyler helped me edit this part to work
 function lightGameBoard(button) {
 	button.style.filter = 'brightness(200%)';
+	buttons.forEach((button) => (button.disabled = true));
 	setTimeout(function () {
 		button.style.filter = 'brightness(75%)';
+		buttons.forEach((button) => (button.disabled = false));
 	}, 1000);
 }
 
@@ -69,7 +74,7 @@ function logAndCheckPlayerColorSequence(event) {
 			playerColorSequence = [];
 			setTimeout(function () {
 				flashComputerColorSequence();
-			}, 1000);
+			}, 2000);
 
 			showScoreboardStats();
 		}
@@ -84,14 +89,14 @@ function logAndCheckPlayerColorSequence(event) {
 	if (
 		playerColorSequenceToString === truncatedComputerColorSequenceToString &&
 		playerSequenceLength === computerSequenceLength &&
-		scoreCounter === 80
+		scoreCounter === 40
 	) {
 		winGame();
 		winnerScoreboardStats();
 		var Timer = setInterval(flashComputerColorSequence, 200);
 		setTimeout(function () {
 			clearInterval(Timer);
-		}, 4000);
+		}, 5000);
 		setTimeout(function () {
 			clearScoreboardStats();
 			gameOver();
@@ -109,10 +114,10 @@ function flashComputerColorSequence() {
 	createComputerColorSequence();
 	let currentColor;
 	for (let i = 0; i < computerColorSequence.length; i++) {
-		currentColor = computerColorSequence[i];
+		// currentColor = computerColorSequence[i];
 		setTimeout(function () {
-			lightGameBoard(buttonsArray[currentColor]);
-		}, i * 500);
+			lightGameBoard(buttonsArray[computerColorSequence[i]]);
+		}, i * 1500);
 		clearTimeout;
 	}
 	computerColorSequenceToString = computerColorSequence
